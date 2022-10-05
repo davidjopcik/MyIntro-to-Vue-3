@@ -1,55 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Vue Mastery</title>
-    <!-- Import Styles -->
-    <link rel="stylesheet" href="./assets/styles.css" />
-    <!-- Import Vue.js -->
-    <script src="https://unpkg.com/vue@3.0.11/dist/vue.global.js"></script>
-  </head>
-  <body>
-    <div id="app">
-      <div class="nav-bar"></div>
 
-      <div class="cart">Cart({{ cart }})</div>
-      
-      <div class="product-display">
-        <div class="product-container">
-          <div class="product-image">
-            <img v-bind:src="image">
-          </div>
-          <div class="product-info">
-            <h1>{{ title }}</h1>
-            <!-- solution -->
-            <p>{{ sale }}</p>
-            <!-- solution -->
-            <p v-if="inStock">In Stock</p>
-            <p v-else>Out of Stock</p>
-            <ul>
-              <li v-for="detail in details">{{ detail }}</li>
-            </ul>
+<head>
+  <meta charset="UTF-8" />
+  <title>Vue Mastery</title>
+  <!-- Import Styles -->
+  <link rel="stylesheet" href="./assets/mystyles.css" />
+  <!-- Import Vue.js -->
+  <script src="https://unpkg.com/vue@3.0.11/dist/vue.global.js"></script>
+</head>
 
-            <div 
-              v-for="(variant, index) in variants" 
-              :key="variant.id" 
-              @mouseover="updateVariant(index)" 
-              class="color-circle" 
-              :style="{ backgroundColor: variant.color }">
-            </div>
-            
-            <button class="button" :class="{ disabledButton: !inStock }" :disabled="!inStock" v-on:click="addToCart">Add to Cart</button>
+<body>
+  <div id="app">
+    <div class="navbar"></div>
+    <div class="cart">
+      <button>Cart {{cart}}</button>
+    </div>
+    <div class="product-display">
+
+      <div class="product-container">
+        <div class="product-image">
+          <img v-bind:src="image">
+        </div>
+        <div class="product-info">
+          <h1>{{ title }}</h1>
+          <p v-if="inStock">In Stock</p>
+          <p v-else>Out of Stock</p>
+          <ul>
+            <li v-for="detail in details">{{ detail }}</li>
+          </ul>
+          <!-- solution -->
+          <ul>
+            <li v-for="(size, index) in sizes" :key="index">{{ size }}</li>
+          </ul>
+          <!-- solution -->
+          <div v-for="(variant, index) in variants" :key="variant.id" @mouseover="updateVariant(index)"
+            class="color-circle" :style="{backgroundColor: variant.color} ">
           </div>
+
+          <button class="button" @click="addToCart()" :class="{disableButton: !inStock}" :disabled="!inStock">Add to
+            cart</button>
+          <button class="button" v-on:click="removeFromCart()" >Remove</button>
+
+
         </div>
       </div>
+
+
+
     </div>
 
-    <!-- Import App -->
-    <script src="./main.js"></script>
+  </div>
 
-    <!-- Mount App -->
-    <script>
-      const mountedApp = app.mount('#app')
-    </script>
-  </body>
+  <!-- Import App -->
+  <script src="./main.js"></script>
+
+  <!-- Mount App -->
+  <script>
+    const mountedApp = app.mount('#app')
+  </script>
+</body>
+
 </html>
