@@ -6,7 +6,7 @@ props: {
   }
 },
     template:
-    //  /*html*/
+     /*html*/
     `<div class="product-display">
 
       <div class="product-container">
@@ -19,11 +19,10 @@ props: {
           <p v-else>Out of Stock</p>
 
           <p>Shipping: {{ shipping }}</p>
+          <p> {{detail}}</p>
         
 
-          <ul>
-            <li v-for="detail in details">{{ detail }}</li>
-          </ul>
+          
           <!-- solution -->
           <ul>
             <li v-for="(size, index) in sizes" :key="index">{{ size }}</li>
@@ -44,11 +43,10 @@ props: {
 
     data() {
         return {
-            cart: 0,
             product: 'Socks',
             brand: 'Vue Mastery',
             selectedVariant: 0,
-            details: ['50% cotton', '30% wool', '20% polyester'],
+            
             // solution
             sizes: ['S', 'M', 'L', 'XL'],
             // solution
@@ -85,7 +83,7 @@ props: {
             return this.variants[this.selectedVariant].quantity
         },
         shipping() {
-          if(this.premium){
+          if (this.premium) {
             return 'Free'
           }
           return "2,99"
