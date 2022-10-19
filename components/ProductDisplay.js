@@ -19,6 +19,8 @@ props: {
           <p v-else>Out of Stock</p>
 
           <p>Shipping: {{ shipping }}</p>
+          <product-details :details="detail"></product-details>
+
           
           <!-- solution -->
           <ul>
