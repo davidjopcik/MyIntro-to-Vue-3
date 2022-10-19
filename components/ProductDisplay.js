@@ -8,7 +8,6 @@ props: {
     template:
      /*html*/
     `<div class="product-display">
-
       <div class="product-container">
         <div class="product-image">
           <img v-bind:src="image">
@@ -19,7 +18,8 @@ props: {
           <p v-else>Out of Stock</p>
 
           <p>Shipping: {{ shipping }}</p>
-          <product-details :details="detail"></product-details>
+
+          <product-details :details="details"></product-details>
 
           
           <!-- solution -->
