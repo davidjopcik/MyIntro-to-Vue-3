@@ -19,9 +19,6 @@ props: {
           <p v-else>Out of Stock</p>
 
           <p>Shipping: {{ shipping }}</p>
-          <p> {{detail}}</p>
-        
-
           
           <!-- solution -->
           <ul>
@@ -46,7 +43,7 @@ props: {
             product: 'Socks',
             brand: 'Vue Mastery',
             selectedVariant: 0,
-            
+            details: ['50% cotton', '30% wool', '20% polyester'],
             // solution
             sizes: ['S', 'M', 'L', 'XL'],
             // solution
