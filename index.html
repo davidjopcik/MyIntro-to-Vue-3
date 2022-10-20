@@ -16,7 +16,9 @@
     <div class="cart">
       <button>Cart {{cart}}</button>
     </div>
-    <product-display :premium="premium"></product-display>
+    <product-display :premium="premium" @add-to-cart="updateCart" 
+    @remove-from-cart="removeCart"
+    ></product-display>
 
 
   </div>

@@ -5,5 +5,16 @@ const app = Vue.createApp({
             premium: true
         }
     },
-    methods: {}
+    methods: {
+        updateCart(){
+            this.cart += 1 
+            
+        },
+        removeCart(){
+            if(this.cart > 0){
+                this.cart -= 1
+            }
+        }
+        
+    }
 })
