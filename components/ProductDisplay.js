@@ -14,6 +14,10 @@ props: {
         </div>
         <div class="product-info">
           <h1>{{ title }}</h1>
+
+          <product-description> </product-description>
+
+
           <p v-if="inStock">In Stock</p>
           <p v-else>Out of Stock</p>
 
